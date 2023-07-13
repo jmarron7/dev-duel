@@ -2,12 +2,16 @@
   style="
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    color: blueviolet;
-    border-bottom: 3px solid black;
+    align-content: center;
+    justify-content: space-between;
+    padding: 10px 50px 10px 50px;
+    filter: drop-shadow(0 0 .05rem #101010);
+    background-color: #2c3656;
   "
 >
-  <a routerLink="/"><h1 class="link"><--Dev Duel--></h1></a>
-  <a routerLink="/inspect"><h1 class="link">Inspect</h1></a>
-  <a routerLink="/duel"><h1 class="link">Duel</h1></a>
+  <a routerLink="/"><h1 class="logo-link"><--Dev Duel--></h1></a>
+    <div class="link-group">
+      <a routerLink="/inspect"><h1 class="link">Inspect</h1></a>
+      <a routerLink="/duel"><h1 class="link">Duel</h1></a>
+    </div>
 </nav>

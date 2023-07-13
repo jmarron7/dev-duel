@@ -1,8 +1,44 @@
 .link {
-font-family: 'Nunito';
-font-style: normal;
-font-weight: 700;
-font-size: 48px;
-text-align: center;
-color: #581DFF;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #37446b;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    padding: 5px 20px 5px 20px;
+    transition: .2s ease-in-out 0s;
+}
+
+.link:hover {
+    cursor: pointer;
+    color: #242c46;
+    background-color: #0FBA81;
+    opacity: 80%;
+}
+
+.logo-link {
+    color: #0FBA81;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    padding: 5px 20px 5px 20px;
+    transition: .2s ease-in-out 0s;
+}
+
+.logo-link:hover {
+    color: #9fe3cd;
+    cursor: pointer;
+}
+
+.link-group {
+    display: flex;
+    width: 30%;
+    height: 100%;
+    flex-direction: row;
+    align-self: center;
+    justify-content: space-evenly;
 }

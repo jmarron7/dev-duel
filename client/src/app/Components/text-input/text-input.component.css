@@ -1,12 +1,16 @@
+
+input:focus {
+  outline: transparent;
+  border: 1px solid #0FBA81;
+}
+
 .username-input {
-  /* Rectangle 1 */
-
-box-sizing: border-box;
-width: 329px;
-height: 61px;
-
-background: #E1F1FF;
-border: 1px solid rgba(0, 0, 0, 0.75);
-border-radius: 15px;
+  box-sizing: border-box;
+  width: 329px;
+  height: 61px;
+  color: #e4e6ee;
+  background: #37446b;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
 
 }
