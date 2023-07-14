@@ -1,8 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
 import User from '../models/User';
-import { ConvertToUserPipe } from '../pipes/convert-to-userpipe';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-inspect',
@@ -31,7 +29,6 @@ export class InspectComponent implements OnInit {
       this.showCard = false;
       this.userData = await this.userService.inspectUser(this.username);
       this.showCard = true;
-      console.log(this.userData.avatar_url)
     } catch (error) {
       this.showCard = false;
       this.errorFound = true;

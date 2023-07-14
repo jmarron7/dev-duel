@@ -20,7 +20,6 @@ export class UserService {
 
   async duelUsers(user1 = 'fabpot', user2 = 'andrew'): Promise<User[]> {
     let response: any = await this.http.get(duelUsersUrl + `username=${user1}&username=${user2}`).toPromise();
-    console.log(response);
     return [this.convertToUserPipe.transform(response[0]), this.convertToUserPipe.transform(response[1])];
   }
 
