@@ -7,6 +7,7 @@
   background-color: #0FBA81;
   border-radius: 8px;
   transition: .2s ease-in-out 0s;
+  margin-bottom: 20px;
 }
 
 .submit-button:hover {
@@ -30,6 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .winner-button{
@@ -48,18 +50,33 @@
 }
 
 .isWinner {
-  transition: transform 5s ease-in-out;
-  transition: box-shadow 1s ease-in-out;
-  transition: border 1s ease-in-out;
-
-  transform: scale(1.02);
   border: 1px solid #0FBA81;
   box-shadow: 0 0 8px #0FBA81;
-  
 }
 
-/* .isWinner:hover {
-  transform: scale(1.02);
-  border: 1px solid #0FBA81;
-  box-shadow: 0 0 8px #0FBA81;
-} */
+.isLoser {
+  border: 1px solid #D41976;
+  box-shadow: 0 0 8px #D41976;
+}
+
+.results-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error-container {
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(212, 25, 118, 0.6);
+  color: #e8eaf1;
+  margin-bottom: 20px;
+}

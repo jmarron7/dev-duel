@@ -3,10 +3,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
+    margin-top: 10vh;
   "
 >
-  <div style="display: flex; flex-direction: row">
+<ng-container>
+  <div class="error-container" *ngIf="errorMessage">
+      <h3>Uh oh! Looks like something went wrong...</h3>
+      <p>{{errorMessage}}</p>
+  </div>
+</ng-container>
+
+  <div *ngIf="!showCards" style="display: flex; flex-direction: row">
     <app-text-input
       (usernameChange)="receiveUsernameOne($event)"
     ></app-text-input>
@@ -17,15 +24,28 @@
   </div>
   <br />
   <br />
-  <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <button *ngIf="!showCards" class="submit-button" (click)="onSubmit()">Duel</button>
   <ng-container *ngIf="showCards">
     <div class="row">
-      <app-card [userData]="user1Data" id="user1" [class.isWinner]="winnerId === 'user1'"></app-card>
-      <div class="vs-container">
-        <h2 class="vs">VS</h2>
-        <button class="winner-button" (click)="handleWinner()">Who Wins?</button>
-      </div>
-      <app-card [userData]="user2Data" id="user2" [class.isWinner]="winnerId === 'user2'"></app-card>
+      <app-card [userData]="user1Data" id="user1" [class.isWinner]="winnerId === 'user1' || winnerId === 'tie'" [class.isLoser]="winnerId === 'user2'"></app-card>
+      <div *ngIf="winnerId === ''; then notStarted; else duelResults"></div>
+      <app-card [userData]="user2Data" id="user2" [class.isWinner]="winnerId === 'user2' || winnerId === 'tie'" [class.isLoser]="winnerId === 'user1'"></app-card>
     </div>
   </ng-container>
 </div>
+
+<!-- TEMPLATES -->
+
+<ng-template #notStarted>
+  <div class="vs-container">
+    <h2 class="vs">VS</h2>
+    <button class="winner-button" (click)="handleWinner()">Who Wins?</button>
+  </div>
+</ng-template>
+
+<ng-template #duelResults>
+  <div class="results-container">
+    <h2 class="results">{{winningMessage}}</h2>
+    <button class="winner-button" (click)="refreshPage()">Try again?</button>
+  </div>
+</ng-template>

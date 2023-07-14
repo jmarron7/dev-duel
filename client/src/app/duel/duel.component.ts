@@ -10,12 +10,18 @@ import User from '../models/User';
 export class DuelComponent implements OnInit {
   usernameOne: string = ""
   usernameTwo: string = ""
+
   showCards: boolean = false
+  
   userData: User[] | null = null
   user1Data: User | null = null
   user2Data: User | null = null
+  
   winnerId: string = ''
+  winningMessage: string = ''
 
+  errorMessage: string | null = null
+  
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -27,6 +33,10 @@ export class DuelComponent implements OnInit {
 
   receiveUsernameTwo(valueEmitted: string) {
     this.usernameTwo = valueEmitted;
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
   calculateWinner(user1: User | null, user2: User | null): string {
@@ -68,20 +78,35 @@ export class DuelComponent implements OnInit {
     }
   }
 
+  createWinningMessage(id: string) {
+    if (id === 'tie') {
+      return "It's A Tie!"
+    } else if (id === 'user1') {
+      return this.usernameOne + " Won!"
+    } else {
+      return this.usernameTwo + " Won!"
+    }
+  }
+
   async handleWinner() {
+    this.winnerId = ''
     this.winnerId = this.calculateWinner(this.user1Data, this.user2Data)
+    this.winningMessage = this.createWinningMessage(this.winnerId)
   }
 
   async onSubmit() {
     try {
       this.showCards = false;
+      this.winnerId = ''
+      this.errorMessage = null;
+
       this.userData = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
       this.user1Data = this.userData[0]
       this.user2Data = this.userData[1]
       this.showCards = true;
-    } catch (error) {
+    } catch (error: any) {
       this.showCards = false;
-      console.error(error)
+      this.errorMessage = "Please enter valid GitHub usernames and try again!";
     }
   }
 }
