@@ -10,4 +10,7 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
+  <ng-container *ngIf="showCard">
+    <app-card [userData]="userData"></app-card>
+  </ng-container>
 </div>

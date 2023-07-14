@@ -14,4 +14,36 @@
   background-color: #57cfa7;
 }
 
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: full;
+  height: auto;
+  align-items: center;
+  justify-items: center;
+}
 
+.vs-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.winner-button{
+  font-weight: 700;
+  /* width: 265px;
+  height: 81px; */
+  cursor: pointer;
+  color: #313a50;
+  background-color: #0FBA81;
+  border-radius: 8px;
+  transition: .2s ease-in-out 0s;
+}
+
+.winner-button:hover {
+  cursor: pointer;
+  background-color: #57cfa7;
+}

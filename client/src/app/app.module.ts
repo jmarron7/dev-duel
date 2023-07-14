@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserService } from 'src/user.service';
+import { CardComponent } from './Components/card/card.component';
+import { ConvertToUserPipe } from './pipes/convert-to-userpipe';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { UserService } from 'src/user.service';
     NavbarComponent,
     LinkButtonComponent,
     HomeComponent,
-    TextInputComponent
+    TextInputComponent,
+    CardComponent,
+    ConvertToUserPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, ConvertToUserPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

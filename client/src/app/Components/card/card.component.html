@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="top">
+        <img [src]="userData['avatar_url']" class="avatar">
+        <a href="https://www.github.com/{{userData.username}}" target="_blank">
+            <h3 class="username">{{userData.username}}</h3>
+        </a>
+    </div>
+    <div class="bottom">
+        <p>Name: {{userData.name}}</p>
+        <p>Location: {{userData.location}}</p>
+        <p>Bio: {{userData.bio}}</p>
+        <p>Titles: {{userData.titles}}</p>
+        <p>Favorite Language: {{userData.favorite_language}}</p>
+        <p>Public Repos: {{userData.public_repos}}</p>
+        <p>Total Stars: {{userData.total_stars}}</p>
+        <p>Highest Starred: {{userData.higher_starred}}</p>
+        <p>Perfect Repos: {{userData.perfect_repos}}</p>
+        <p>Followers: {{userData.followers}}</p>
+        <p>Following: {{userData.following}}</p>
+    </div>
+</div>
