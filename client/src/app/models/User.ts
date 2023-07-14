@@ -7,7 +7,9 @@ export default interface User {
     titles: string[],
     favorite_language: string,
     public_repos: number,
+    perfect_repos: number,
     total_stars: number,
+    highest_starred: number,
     followers: number,
     following: number,
 }

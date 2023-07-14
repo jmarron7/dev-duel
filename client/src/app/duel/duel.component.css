@@ -34,8 +34,7 @@
 
 .winner-button{
   font-weight: 700;
-  /* width: 265px;
-  height: 81px; */
+  padding: 5px;
   cursor: pointer;
   color: #313a50;
   background-color: #0FBA81;
@@ -47,3 +46,20 @@
   cursor: pointer;
   background-color: #57cfa7;
 }
+
+.isWinner {
+  transition: transform 5s ease-in-out;
+  transition: box-shadow 1s ease-in-out;
+  transition: border 1s ease-in-out;
+
+  transform: scale(1.02);
+  border: 1px solid #0FBA81;
+  box-shadow: 0 0 8px #0FBA81;
+  
+}
+
+/* .isWinner:hover {
+  transform: scale(1.02);
+  border: 1px solid #0FBA81;
+  box-shadow: 0 0 8px #0FBA81;
+} */

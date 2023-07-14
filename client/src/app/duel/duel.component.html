@@ -20,12 +20,12 @@
   <button class="submit-button" (click)="onSubmit()">Duel</button>
   <ng-container *ngIf="showCards">
     <div class="row">
-      <app-card [userData]="user1Data"></app-card>
+      <app-card [userData]="user1Data" id="user1" [class.isWinner]="winnerId === 'user1'"></app-card>
       <div class="vs-container">
         <h2 class="vs">VS</h2>
         <button class="winner-button" (click)="handleWinner()">Who Wins?</button>
       </div>
-      <app-card [userData]="user2Data"></app-card>
+      <app-card [userData]="user2Data" id="user2" [class.isWinner]="winnerId === 'user2'"></app-card>
     </div>
   </ng-container>
 </div>

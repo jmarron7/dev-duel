@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConvertToUserPipe } from './app/pipes/convert-to-userpipe';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
 import User from './app/models/User';
 
 const inspectUserUrl = 'http://localhost:3000/api/user/';

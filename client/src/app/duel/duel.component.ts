@@ -14,6 +14,7 @@ export class DuelComponent implements OnInit {
   userData: User[] | null = null
   user1Data: User | null = null
   user2Data: User | null = null
+  winnerId: string = ''
 
   constructor(private userService: UserService) { }
 
@@ -28,8 +29,47 @@ export class DuelComponent implements OnInit {
     this.usernameTwo = valueEmitted;
   }
 
+  calculateWinner(user1: User | null, user2: User | null): string {
+    let user1Score = 0;
+    let user2Score = 0;
+    
+    if (user1 === null || user2 === null) {
+      return ''
+    }
+
+    for (const user of [user1, user2]) {
+      const userFields = Object.values(user);
+  
+      for (const field of userFields) {
+        if (field !== null && field !== '') {
+          if (typeof field === 'number') {
+            if (user === user1) {
+              user1Score += field;
+            } else {
+              user2Score += field;
+            }
+          } else {
+            if (user === user1) {
+              user1Score++;
+            } else {
+              user2Score++;
+            }
+          }
+        }
+      }
+    }
+  
+    if (user1Score > user2Score) {
+      return 'user1';
+    } else if (user2Score > user1Score) {
+      return 'user2';
+    } else {
+      return 'tie';
+    }
+  }
+
   async handleWinner() {
-    console.log("winner clicked")
+    this.winnerId = this.calculateWinner(this.user1Data, this.user2Data)
   }
 
   async onSubmit() {

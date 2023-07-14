@@ -16,7 +16,9 @@ export class ConvertToUserPipe implements PipeTransform {
       titles: response.titles,
       favorite_language: response['favorite-language'],
       public_repos: response['public-repos'],
+      perfect_repos: response['perfect-repos'],
       total_stars: response['total-stars'],
+      highest_starred: response['highest-starred'],
       followers: response.followers,
       following: response.following
     };
