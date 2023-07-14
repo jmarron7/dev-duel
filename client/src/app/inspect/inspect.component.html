@@ -6,6 +6,10 @@
     margin-top: 20vh;
   "
 >
+  <div class="error-container" *ngIf="errorFound">
+    <h3>Uh oh! Looks like something went wrong...</h3>
+    <p>Please enter a valid GitHub username and try again!</p>
+  </div>
   <app-text-input (usernameChange)="receiveUsername($event)"></app-text-input>
   <br />
   <br />

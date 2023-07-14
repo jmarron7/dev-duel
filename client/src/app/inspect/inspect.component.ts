@@ -14,6 +14,7 @@ export class InspectComponent implements OnInit {
   username: string = ""
   showCard: boolean = false
   userData: User | null = null
+  errorFound: boolean = false
 
   constructor(private userService: UserService) { }
 
@@ -26,13 +27,14 @@ export class InspectComponent implements OnInit {
 
   async onSubmit() {
     try {
+      this.errorFound = false;
       this.showCard = false;
       this.userData = await this.userService.inspectUser(this.username);
       this.showCard = true;
       console.log(this.userData.avatar_url)
     } catch (error) {
       this.showCard = false;
-      console.error(error)
+      this.errorFound = true;
     }
   }
 

@@ -14,4 +14,15 @@
   background-color: #57cfa7;
 }
 
-
+.error-container {
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(212, 25, 118, 0.6);
+  color: #e8eaf1;
+  margin-bottom: 20px;
+}
